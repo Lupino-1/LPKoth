@@ -1,0 +1,14 @@
+name: LPKoth
+version: '1.0-SNAPSHOT'
+main: com.lupino.lpkoth.LPKoth
+api-version: '1.21'
+commands:
+  koth:
+    description: Main koth command
+    permission: lpkoth.basecommand
+
+permissions:
+  lpkoth.basecommand:
+    default: op
+  lpkoth.admin:
+    default: op
