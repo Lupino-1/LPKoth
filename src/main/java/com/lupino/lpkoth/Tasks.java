@@ -15,9 +15,7 @@ import java.util.UUID;
 
 
 public class Tasks {
-
     private final LPKoth plugin;
-
     private final KothManager kothManager;
     private final MessageManager messageManager;
 
@@ -26,8 +24,6 @@ public class Tasks {
         this.kothManager = kothManager;
         this.messageManager= messageManager;
     }
-
-
 
 public void checkKothsTimings(){
 
@@ -42,9 +38,7 @@ public void checkKothsTimings(){
         }
 
     }.runTaskTimer(plugin,0,1200);
-
 }
-
 
 public void checkRunningKoths(){
     new BukkitRunnable() {

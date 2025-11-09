@@ -8,6 +8,7 @@ import com.lupino.lpkoth.listeners.PlayerLeaveListener;
 import com.lupino.lpkoth.managers.KothManager;
 import com.lupino.lpkoth.managers.MessageManager;
 import com.lupino.lpkoth.tabcompleters.KothCompleter;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -38,13 +39,16 @@ public final class LPKoth extends JavaPlugin {
         tasks.checkKothsTimings();
         tasks.checkRunningKoths();
         kothManager.loadKoths();
-
-
-
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&8==================================="));
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&aPlugin successfully enabled"));
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&7Author: &fLupino"));
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&8==================================="));
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&8==================================="));
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&aPlugin successfully disabled"));
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&8==================================="));
     }
 }

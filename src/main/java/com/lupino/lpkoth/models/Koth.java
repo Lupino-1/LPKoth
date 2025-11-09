@@ -85,7 +85,6 @@ public Map<UUID,Integer> points = new HashMap<>();
         BarColor color = BarColor.valueOf(strColor.toUpperCase());
         if(color == null)return;
         bossBar.setColor(color);
-
     }
     public Map<UUID, Integer> getPoints() {
         return points;
@@ -116,7 +115,6 @@ public Map<UUID,Integer> points = new HashMap<>();
 
     public void minusTime(int minusTime){
         this.time = this.time-minusTime;
-
     }
 
     public BossBar getBossBar() {

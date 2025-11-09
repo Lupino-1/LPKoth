@@ -30,8 +30,6 @@ public class MenuListener implements Listener {
 
     private final LPKoth plugin;
 
-
-
     public final Map<UUID, InputState> waitingForInput = new HashMap<>();
     public MenuListener(KothCommand kothCommand, MessageManager messageManager, KothManager kothManager, LPKoth plugin) {
         this.kothCommand = kothCommand;
@@ -39,95 +37,61 @@ public class MenuListener implements Listener {
         this.kothManager = kothManager;
         this.plugin = plugin;
     }
-
-
-
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event){
         ItemStack hand = event.getCurrentItem();
         Player player  = (Player) event.getWhoClicked();
-        
 
         if(event.getView().getTitle().equalsIgnoreCase(messageManager.translateColors("&0Koth menu"))){
             event.setCancelled(true);
+
             if(hasPersi(hand, Keys.COR1_BUTTON)){
                 player.closeInventory();
-                player.sendMessage("§7Click on corner1 block.");
+                player.sendMessage(messageManager.translateColors("&7Click on corner1 block."));
                 waitingForInput.put(player.getUniqueId(), InputState.COR1);
                 return;
             }
+
             if(hasPersi(hand, Keys.COR2_BUTTON)){
                 player.closeInventory();
-                player.sendMessage("§7Click on corner2 block.");
+                player.sendMessage(messageManager.translateColors("&7Click on corner2 block."));
                 waitingForInput.put(player.getUniqueId(), InputState.COR2);
                 return;
             }
 
             if(hasPersi(hand, Keys.NAME_BUTTON)){
                 player.closeInventory();
-                player.sendMessage("§7Write name in chat:");
+                player.sendMessage(messageManager.translateColors("&7Write name in chat:"));
                 waitingForInput.put(player.getUniqueId(), InputState.NAME);
                 return;
-
-
             }
 
             if(hasPersi(hand, Keys.SAVE_BUTTON)){
+
                 if (!isAllTempArenaDataSet()) {
-                    player.sendMessage(ChatColor.RED + "First set all values!");
+                    player.sendMessage(messageManager.translateColors("&cFirst set all values!"));
                     return;
                 }
 
                 if(!areAllLocationsInSameWorld()){
-                    player.sendMessage(ChatColor.RED + "All locations need to be in the same world!");
+                    player.sendMessage(messageManager.translateColors("&cAll locations need to be in the same world!"));
                     return;
-
-
                 }
+
                 int duration = plugin.getConfig().getInt("default-duration",300);
                 kothManager.saveKothToConfig(new Koth(kothCommand.tempName,kothCommand.tempCorner1,kothCommand.tempCorner2,null,null,null,duration));
-                player.sendMessage(ChatColor.GREEN + "Koth successfully loaded! For more configuration use files.");
+                player.sendMessage(messageManager.translateColors("&aKoth successfully loaded! For more configuration use config files."));
                 resetTempArenaDataSet();
                 player.closeInventory();
-
-
             }
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     public boolean areAllLocationsInSameWorld() {
         World world = kothCommand.tempCorner1.getWorld();
 
         return world != null && world.equals(kothCommand.tempCorner2.getWorld());
     }
-
     public void resetTempArenaDataSet() {
         kothCommand.tempName = null;
         kothCommand.tempCorner1 = null ;

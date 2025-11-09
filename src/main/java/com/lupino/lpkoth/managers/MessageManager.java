@@ -40,7 +40,6 @@ public class MessageManager {
         message = getPrefix()+message;
         message = translateColors(message);
 
-
         return message;
     }
     public void sendMessageFromConfig(Player player,String path){

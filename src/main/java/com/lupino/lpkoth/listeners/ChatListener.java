@@ -14,18 +14,11 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import java.util.UUID;
 
 public class ChatListener implements Listener {
-
     private final LPKoth plugin;
-
     private final MenuListener menuListener;
-
     private final KothCommand kothCommand;
-
     private final MessageManager messageManager;
-
     private final KothManager kothManager;
-
-
     public ChatListener(LPKoth plugin, MenuListener menuListener, KothCommand kothCommand, MessageManager messageManager, KothManager kothManager) {
         this.plugin = plugin;
         this.menuListener = menuListener;
@@ -33,7 +26,6 @@ public class ChatListener implements Listener {
         this.messageManager = messageManager;
         this.kothManager = kothManager;
     }
-
     @EventHandler
     public void onChatInput(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
@@ -46,32 +38,25 @@ public class ChatListener implements Listener {
         String message = event.getMessage().trim();
         event.setCancelled(true);
 
-        // Zákaz mezer
         if (message.contains(" ")) {
-            player.sendMessage("§cOnly one word without spaces!");
+            player.sendMessage(messageManager.translateColors("&cOnly one word without spaces!"));
             return;
         }
 
         Bukkit.getScheduler().runTask(plugin, () -> {
             if (state == InputState.NAME) {
-                // Validace názvu
                 if (!message.matches("^[a-zA-Z0-9]+$")) {
-                    player.sendMessage("§cName can only contain letters and numbers (a-z, A-Z, 0-9)!");
+                    player.sendMessage(messageManager.translateColors("&cName can only contain letters and numbers (a-z, A-Z, 0-9)!"));
                     return;
                 }
-
-                // Zkontroluj, jestli jméno už existuje
-                boolean nameTaken = kothManager.getAllKothNames().stream()
-                        .anyMatch(existing -> existing.equalsIgnoreCase(message));
-
+                boolean nameTaken = kothManager.getAllKothNames().stream().anyMatch(existing -> existing.equalsIgnoreCase(message));
                 if (nameTaken) {
-                    player.sendMessage("§cKoth with this name already exists!");
+                    player.sendMessage(messageManager.translateColors("&cKoth with this name already exists!"));
                     return;
                 }
-
                 menuListener.waitingForInput.remove(uuid);
                 kothCommand.tempName = message;
-                player.sendMessage("§aName set to: §f" + message);
+                player.sendMessage(messageManager.translateColors("&aName set to: &f" + message));
                 kothCommand.openMenu(player);
             }
         });

@@ -12,3 +12,5 @@ permissions:
     default: op
   lpkoth.admin:
     default: op
+author: Lupino1
+description: Simple lightweight koth plugin

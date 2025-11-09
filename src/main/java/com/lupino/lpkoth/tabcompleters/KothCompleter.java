@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KothCompleter implements TabCompleter {
-
     private final KothManager kothManager;
 
     public KothCompleter(KothManager kothManager) {
@@ -44,8 +43,6 @@ public class KothCompleter implements TabCompleter {
                 for(String name: kothManager.getAllKothNames()){
                     list.add(name);
                 }
-
-
             }
             return list;
         }

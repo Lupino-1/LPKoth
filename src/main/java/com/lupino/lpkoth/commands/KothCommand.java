@@ -53,7 +53,6 @@ public class KothCommand implements CommandExecutor {
                 case "create":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
-                        //messageManager.sendMessageFromConfig(player,"no-permission");
                         return true;
                     }
                     openMenu(player);
@@ -61,45 +60,36 @@ public class KothCommand implements CommandExecutor {
                 case "reload":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
-                        //messageManager.sendMessageFromConfig(player,"no-permission");
                         return true;
                     }
-
                     try {
                         messageManager.reloadMessages();
                         plugin.reloadConfig();
                         kothManager.reload();
                         kothManager.loadKoths();
                         player.sendMessage(messageManager.translateColors("&aPlugin successfully reloaded"));
-                        //messageManager.sendMessageFromConfig(player,"commands.reload-command-message");
-
-
                     } catch (Exception e) {
-                        sender.sendMessage(ChatColor.RED + "An error occurred while reloading config.yml.");
+                        sender.sendMessage(messageManager.translateColors("&cAn error occurred while reloading config.yml."));
                         e.printStackTrace();
                     }
                     return true;
                 case "list":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
-                        //messageManager.sendMessageFromConfig(player,"no-permission");
                         return true;
                     }
                     player.sendMessage(messageManager.translateColors("&bKoths &f"+kothManager.getAllKothNames()));
                     return true;
+
                 case "stop":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
-                        //messageManager.sendMessageFromConfig(player,"no-permission");
                         return true;
                     }
                     if (args.length<2){
                         player.sendMessage(messageManager.translateColors("&cUsage /koth stop <name>"));
-
                         return true;
                     }
-
-
                     for(String name:kothManager.getAllKothNames()){
                         if(args[1].equalsIgnoreCase(name)){
                             if (!kothManager.getKothFromName(name).isRunning()){
@@ -107,27 +97,19 @@ public class KothCommand implements CommandExecutor {
                                 continue;
                             }
                             kothManager.stopKoth(kothManager.getKothFromName(name));
-
-
-                            //messageManager.sendMessageFromConfig(player,"commands.delete-arena-command-message",Map.of("arena",name));
-
+                            player.sendMessage(messageManager.translateColors("&aSuccessfully stoped koth called: "+name));
                             return true;
                         }
-
-
                     }
                     return true;
-
 
                 case "end":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
-                        //messageManager.sendMessageFromConfig(player,"no-permission");
                         return true;
                     }
                     if (args.length<2){
                         player.sendMessage(messageManager.translateColors("&cUsage /koth end <name>"));
-
                         return true;
                     }
                     for(String name:kothManager.getAllKothNames()){
@@ -136,33 +118,22 @@ public class KothCommand implements CommandExecutor {
                                 player.sendMessage(messageManager.translateColors("&cThis koth is not running"));
                                 continue;
                             }
-
                             kothManager.endKoth(kothManager.getKothFromName(name));
-
-
-                            //messageManager.sendMessageFromConfig(player,"commands.delete-arena-command-message",Map.of("arena",name));
-
+                            player.sendMessage(messageManager.translateColors("&aSuccessfully ended koth called: "+name));
                             return true;
                         }
-
-
                     }
                     return true;
-
 
                 case "start":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
-                        //messageManager.sendMessageFromConfig(player,"no-permission");
                         return true;
                     }
                     if (args.length<2){
                         player.sendMessage(messageManager.translateColors("&cUsage /koth start <name>"));
-
                         return true;
                     }
-
-
                     for(String name:kothManager.getAllKothNames()){
                         if(args[1].equalsIgnoreCase(name)){
                             if (kothManager.getKothFromName(name).isRunning()){
@@ -170,16 +141,14 @@ public class KothCommand implements CommandExecutor {
                                 continue;
                             }
                             kothManager.startKoth(kothManager.getKothFromName(name));
-
-
-                            //messageManager.sendMessageFromConfig(player,"commands.delete-arena-command-message",Map.of("arena",name));
-
+                            player.sendMessage(messageManager.translateColors("&aSuccessfully started koth called: "+name));
                             return true;
                         }
 
 
                     }
                     return true;
+
                 case "tp":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
@@ -187,25 +156,17 @@ public class KothCommand implements CommandExecutor {
                     }
                     if (args.length<2){
                         player.sendMessage(messageManager.translateColors("&cUsage /koth tp <name>"));
-
                         return true;
                     }
-
-
                     for(String name:kothManager.getAllKothNames()){
                         if(args[1].equalsIgnoreCase(name)){
-
                             kothManager.tpToKoth(player,kothManager.getKothFromName(name));
-
-
-                            //messageManager.sendMessageFromConfig(player,"commands.delete-arena-command-message",Map.of("arena",name));
-
+                            player.sendMessage(messageManager.translateColors("&aSuccessfully teleported to  koth called: "+name));
                             return true;
                         }
-
-
                     }
                     return true;
+
                 case "delete":
                     if(!player.hasPermission("koth.admin")) {
                         player.sendMessage(messageManager.translateColors("&cYou don't have permission"));
@@ -216,35 +177,16 @@ public class KothCommand implements CommandExecutor {
 
                         return true;
                     }
-
-
                     for(String name:kothManager.getAllKothNames()){
                         if(args[1].equalsIgnoreCase(name)){
-
                             kothManager.deleteKoth(kothManager.getKothFromName(name));
-
-
-                            //messageManager.sendMessageFromConfig(player,"commands.delete-arena-command-message",Map.of("arena",name));
-
+                            player.sendMessage(messageManager.translateColors("&aSuccessfully deleted koth called: "+name));
                             return true;
                         }
-
-
                     }
                     return true;
-
-
-
-
-
-
-
-
             }
-
         }
-
-
         return false;
     }
     public void openMenu(Player player){

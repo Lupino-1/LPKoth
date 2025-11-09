@@ -38,7 +38,6 @@ public class KothManager {
     public KothManager(JavaPlugin plugin,MessageManager messageManager) {
         dataFile = new File(plugin.getDataFolder(), "koths.yml");
 
-
         if (!dataFile.exists()) {
             try {
                 dataFile.getParentFile().mkdirs();
@@ -56,12 +55,9 @@ public class KothManager {
         ConfigurationSection regionSection = dataConfig.getConfigurationSection("koths");
         if (regionSection == null) return;
 
-
-
         for (String name : regionSection.getKeys(false)) {
             ConfigurationSection section = regionSection.getConfigurationSection(name);
             if (section == null) continue;
-
 
             Location corner1 = section.getLocation("corner1");
             Location corner2 = section.getLocation("corner2");
@@ -87,13 +83,7 @@ public class KothManager {
             koth.setStartMessage(startMessage);
             koth.setBossBarMessage(bossBarMessage);
             koth.setSecondsMessage(secondsMessage);
-
-
-
         }
-
-
-
     }
 
     public void saveKothToConfig(Koth koth){
@@ -119,9 +109,7 @@ public class KothManager {
 
 
     public void deleteKoth(Koth koth){
-
         if (koth == null) return;
-
         koths.remove(koth);
         dataConfig.set("koths." + koth.getName(), null);
         saveData();
@@ -141,7 +129,6 @@ public class KothManager {
             if(koth.getName().equalsIgnoreCase(name)){
                 return koth;
             }
-
         }
         return null;
     }
@@ -189,7 +176,6 @@ public class KothManager {
         double chance = 100.0;
         String command = input;
 
-
         try {
             chance = Double.parseDouble(parts[0]);
             if (parts.length < 2) {
@@ -235,7 +221,6 @@ public class KothManager {
         BossBar bar = koth.getBossBar();
         if (bar != null) bar.setVisible(false);
         koth.setTime(koth.getDuration());
-
     }
     public void endKoth(Koth koth){
         if (koth == null)return;
@@ -268,10 +253,10 @@ public class KothManager {
             String timePart;
 
             if (parts.length == 2) {
-                dayPart = parts[0].toUpperCase(); // např. "MON"
+                dayPart = parts[0].toUpperCase();
                 timePart = parts[1];
             } else {
-                dayPart = ""; // každý den
+                dayPart = "";
                 timePart = parts[0];
             }
 
@@ -282,13 +267,7 @@ public class KothManager {
 
             }
         }
-
-
-
-
     }
-
-
 
     public boolean isInKoth(Player player, Koth koth) {
 
@@ -336,18 +315,15 @@ public class KothManager {
     }
     public boolean isOverlapping(Koth newKoth) {
         for (Koth existing : koths) {
-
             if (existing.intersects(newKoth)) {
                 return true;
             }
-
         }
         return false;
     }
     public void loadConfig() {
         dataConfig = YamlConfiguration.loadConfiguration(dataFile);
     }
-
 
     public void reload() {
         if (!dataFile.exists()) {

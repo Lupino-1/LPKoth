@@ -16,11 +16,9 @@ import java.util.Map;
 import java.util.UUID;
 
 public class PlayerInteractListener implements Listener {
-
     private final LPKoth plugin;
     private final MessageManager messageManager;
     private final MenuListener menuListener;
-
     private final KothCommand kothCommand;
 
     public PlayerInteractListener(LPKoth plugin, MessageManager messageManager, MenuListener menuListener, KothCommand kothCommand) {
@@ -38,7 +36,6 @@ public class PlayerInteractListener implements Listener {
         UUID uuid = player.getUniqueId();
         if (!menuListener.waitingForInput.containsKey(uuid)) return;
         InputState state = menuListener.waitingForInput.remove(uuid);
-
         Location location = event.getClickedBlock().getLocation();
         if (location==null)return;
         event.setCancelled(true);
@@ -48,27 +45,11 @@ public class PlayerInteractListener implements Listener {
 
         if (state == InputState.COR1) {
             kothCommand.tempCorner1 = location;
-            //messageManager.sendMessageFromConfig(player,"corner1-set-message", Map.of("x",x,"y",y,"z",z));
             player.sendMessage(messageManager.translateColors( "&aCorner1 set to: &fX: &#00fff5"+x+" &fY: &#00fff5"+y+" &fZ: &#00fff5"+z));
         } else if (state == InputState.COR2) {
             kothCommand.tempCorner2 = location;
             player.sendMessage(messageManager.translateColors( "&aCorner2 set to: &fX: &#00fff5"+x+" &fY: &#00fff5"+y+" &fZ: &#00fff5"+z));
-
-            //messageManager.sendMessageFromConfig(player,"corner2-set-message", Map.of("x",x,"y",y,"z",z));
-
         }
         kothCommand.openMenu(player);
-
-
-
-
-
-
     }
-
-
-
-
-
-
 }
