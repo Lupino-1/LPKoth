@@ -40,7 +40,7 @@ public final class LPKoth extends JavaPlugin {
         kothManager.loadKoths();
         Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&8==================================="));
         Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&aPlugin successfully enabled"));
-        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&7Author: &fLupino"));
+        Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&7Author: &fLupino1"));
         Bukkit.getConsoleSender().sendMessage(messageManager.translateColors("&8==================================="));
     }
 
