@@ -1,12 +1,12 @@
-package com.lupino.lpkoth.listeners;
+package dev.lupino1.lpkoth.listeners;
 
-import com.lupino.lpkoth.Keys;
-import com.lupino.lpkoth.LPKoth;
-import com.lupino.lpkoth.commands.KothCommand;
-import com.lupino.lpkoth.enums.InputState;
-import com.lupino.lpkoth.managers.KothManager;
-import com.lupino.lpkoth.managers.MessageManager;
-import com.lupino.lpkoth.models.Koth;
+import dev.lupino1.lpkoth.Keys;
+import dev.lupino1.lpkoth.LPKoth;
+import dev.lupino1.lpkoth.commands.KothCommand;
+import dev.lupino1.lpkoth.enums.InputState;
+import dev.lupino1.lpkoth.managers.KothManager;
+import dev.lupino1.lpkoth.managers.MessageManager;
+import dev.lupino1.lpkoth.models.Koth;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

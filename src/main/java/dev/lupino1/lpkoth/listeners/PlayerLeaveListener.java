@@ -1,6 +1,6 @@
-package com.lupino.lpkoth.listeners;
+package dev.lupino1.lpkoth.listeners;
 
-import com.lupino.lpkoth.LPKoth;
+import dev.lupino1.lpkoth.LPKoth;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

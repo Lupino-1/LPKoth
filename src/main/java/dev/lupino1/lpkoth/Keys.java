@@ -1,4 +1,4 @@
-package com.lupino.lpkoth;
+package dev.lupino1.lpkoth;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.Plugin;

@@ -1,7 +1,9 @@
 name: LPKoth
 version: '${project.version}'
-main: com.lupino.lpkoth.LPKoth
+main: lpkoth.lupino.dev.LPKoth
 api-version: '1.21'
+author: Lupino1
+description: Simple lightweight koth plugin
 commands:
   koth:
     description: Main koth command
@@ -12,5 +14,3 @@ permissions:
     default: op
   lpkoth.admin:
     default: op
-author: Lupino1
-description: Simple lightweight koth plugin

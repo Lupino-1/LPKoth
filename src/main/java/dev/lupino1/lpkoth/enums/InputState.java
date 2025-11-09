@@ -1,4 +1,4 @@
-package com.lupino.lpkoth.enums;
+package dev.lupino1.lpkoth.enums;
 
 public enum InputState {
     NAME,

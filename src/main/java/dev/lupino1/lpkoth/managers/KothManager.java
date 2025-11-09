@@ -1,7 +1,7 @@
-package com.lupino.lpkoth.managers;
+package dev.lupino1.lpkoth.managers;
 
 
-import com.lupino.lpkoth.models.Koth;
+import dev.lupino1.lpkoth.models.Koth;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;

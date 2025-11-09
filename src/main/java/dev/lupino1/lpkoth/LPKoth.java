@@ -1,15 +1,14 @@
-package com.lupino.lpkoth;
+package dev.lupino1.lpkoth;
 
-import com.lupino.lpkoth.commands.KothCommand;
-import com.lupino.lpkoth.listeners.ChatListener;
-import com.lupino.lpkoth.listeners.MenuListener;
-import com.lupino.lpkoth.listeners.PlayerInteractListener;
-import com.lupino.lpkoth.listeners.PlayerLeaveListener;
-import com.lupino.lpkoth.managers.KothManager;
-import com.lupino.lpkoth.managers.MessageManager;
-import com.lupino.lpkoth.tabcompleters.KothCompleter;
+import dev.lupino1.lpkoth.commands.KothCommand;
+import dev.lupino1.lpkoth.listeners.ChatListener;
+import dev.lupino1.lpkoth.listeners.MenuListener;
+import dev.lupino1.lpkoth.listeners.PlayerInteractListener;
+import dev.lupino1.lpkoth.listeners.PlayerLeaveListener;
+import dev.lupino1.lpkoth.managers.KothManager;
+import dev.lupino1.lpkoth.managers.MessageManager;
+import dev.lupino1.lpkoth.tabcompleters.KothCompleter;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LPKoth extends JavaPlugin {

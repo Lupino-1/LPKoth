@@ -1,9 +1,9 @@
-package com.lupino.lpkoth.listeners;
+package dev.lupino1.lpkoth.listeners;
 
-import com.lupino.lpkoth.LPKoth;
-import com.lupino.lpkoth.commands.KothCommand;
-import com.lupino.lpkoth.enums.InputState;
-import com.lupino.lpkoth.managers.MessageManager;
+import dev.lupino1.lpkoth.LPKoth;
+import dev.lupino1.lpkoth.commands.KothCommand;
+import dev.lupino1.lpkoth.enums.InputState;
+import dev.lupino1.lpkoth.managers.MessageManager;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,7 +12,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
-import java.util.Map;
 import java.util.UUID;
 
 public class PlayerInteractListener implements Listener {

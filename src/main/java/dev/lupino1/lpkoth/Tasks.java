@@ -1,10 +1,9 @@
-package com.lupino.lpkoth;
+package dev.lupino1.lpkoth;
 
-import com.lupino.lpkoth.managers.KothManager;
-import com.lupino.lpkoth.managers.MessageManager;
-import com.lupino.lpkoth.models.Koth;
+import dev.lupino1.lpkoth.managers.KothManager;
+import dev.lupino1.lpkoth.managers.MessageManager;
+import dev.lupino1.lpkoth.models.Koth;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;

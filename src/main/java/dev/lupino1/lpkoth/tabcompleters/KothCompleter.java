@@ -1,7 +1,6 @@
-package com.lupino.lpkoth.tabcompleters;
+package dev.lupino1.lpkoth.tabcompleters;
 
-import com.lupino.lpkoth.managers.KothManager;
-import com.lupino.lpkoth.models.Koth;
+import dev.lupino1.lpkoth.managers.KothManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;

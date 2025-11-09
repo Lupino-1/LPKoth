@@ -1,10 +1,10 @@
-package com.lupino.lpkoth.commands;
+package dev.lupino1.lpkoth.commands;
 
 import com.destroystokyo.paper.profile.PlayerProfile;
-import com.lupino.lpkoth.Keys;
-import com.lupino.lpkoth.LPKoth;
-import com.lupino.lpkoth.managers.KothManager;
-import com.lupino.lpkoth.managers.MessageManager;
+import dev.lupino1.lpkoth.Keys;
+import dev.lupino1.lpkoth.LPKoth;
+import dev.lupino1.lpkoth.managers.KothManager;
+import dev.lupino1.lpkoth.managers.MessageManager;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,7 +21,6 @@ import org.jetbrains.annotations.NotNull;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 public class KothCommand implements CommandExecutor {
@@ -174,7 +173,6 @@ public class KothCommand implements CommandExecutor {
                     }
                     if (args.length<2){
                         player.sendMessage(messageManager.translateColors("&cUsage /koth delete <name>"));
-
                         return true;
                     }
                     for(String name:kothManager.getAllKothNames()){

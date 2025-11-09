@@ -1,4 +1,4 @@
-package com.lupino.lpkoth.managers;
+package dev.lupino1.lpkoth.managers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
